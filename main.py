@@ -256,4 +256,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
     main(args.run, args.dataset_file, args.categories_file)
     print("\nDone! :)")
-#'''
