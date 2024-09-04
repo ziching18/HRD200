@@ -333,7 +333,7 @@ def test_all_models(X, y, results, s, rs, labels):
     res = []
     test_result = {}
     for model in results.keys():
-        test = final_test(X, y, results[model][0], s, rs, model, label=labels[model])
+        test = final_test(X, y, results[model][0], s, rs, model)
         test_result[model] = test
         res.append(test)
 

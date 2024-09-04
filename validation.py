@@ -9,7 +9,11 @@ def main(dataset_file, training_path, truth_file=None):
     dataset = pd.read_csv(dataset_file, index_col="id")
     cohort = "tcga"
 
-    no_truth = True
+    if truth_file == None:
+        no_truth = True
+    else:
+        no_truth = False
+
     if no_truth == False:
         truth = pd.read_excel(truth_file, index_col="id", engine="openpyxl")
         #dataset = dataset.loc[list(truth.index)] 
@@ -64,7 +68,7 @@ def main(dataset_file, training_path, truth_file=None):
                 final_pred.append(0)
         test_mean_proba["pred"] = final_pred
         if no_truth == False:
-            test_mean_proba["truth"] = truth
+            test_mean_proba["truth"] = truth["truth"].to_list()
         mean_tests.append(list(test_mean_proba["avg"]))
         test_mean_proba.to_csv("validation/{0}/{0}_s{1}_mean_val_probabilities.csv".format(cohort, sets))
 
@@ -80,7 +84,7 @@ def main(dataset_file, training_path, truth_file=None):
             final_pred.append(0)
     mean_avg_prob["pred"] = final_pred
     if no_truth == False:
-        mean_avg_prob["truth"] = truth
+        mean_avg_prob["truth"] = truth["truth"].to_list()
     mean_avg_prob.to_csv("validation/{0}/{0}_final_mean_val_probabilities.csv".format(cohort))
 
     if no_truth == False:
