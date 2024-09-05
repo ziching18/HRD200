@@ -1,5 +1,8 @@
 # HRD200
 This GitHub repository contains the training and validation code used in "Gene expression signature for predicting homologous recombination deficiency in triple-negative breast cancer" published in <i>npj Breast Cancer</i> (link: https://doi.org/10.1038/s41523-024-00671-1)
+
+![architecture_v2-01-white](https://github.com/user-attachments/assets/f35707db-0263-4873-b7bf-0d99dc3228f0)
+
 ## Preludes
 ### Creating a conda environment
 It is recommended that users create a conda environment to run HRD200 in. <br>
