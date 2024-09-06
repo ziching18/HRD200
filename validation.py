@@ -104,7 +104,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("dataset_file")
     parser.add_argument("training_path")
-    parser.add_argument("truth_file")
+    parser.add_argument("truth_file", nargs="?", default=None)
     args = parser.parse_args()
     main(args.dataset_file, args.training_path, args.truth_file)
     print("\nDone! :)")
